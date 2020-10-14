@@ -7,9 +7,29 @@ send sms interface for aliyun
 
 使用示例：
 ```GO
+package main
+
+import (
+	"log"
+
+	"github.com/aveyuan/dysms"
+)
+
+const accessKeyID = ""
+const accessSecret = ""
+const phoneNumbers = ""
+const signName = ""
+const templateCode = ""
+const templateParam = ""
+
+func main() {
 	if err := dysms.SendSms(accessKeyID, accessSecret, phoneNumbers, signName, templateParam, templateCode); err != nil {
 		log.Println("dysms.SendSms", err)
+	} else {
+		log.Println("send ok")
 	}
+}
+
 ```
 
 其实就是翻译了 [HTTP协议及签名](https://help.aliyun.com/document_detail/56189.html) 这篇官方API文档中的示例代码，Java -> Go
